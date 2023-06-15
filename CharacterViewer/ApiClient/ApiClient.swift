@@ -21,7 +21,6 @@ class APIClient: NSObject {
         })
     }
     
-    
     func fetchCharacterImage(from url: URL, completion: @escaping (Data?) -> Void) {
         self.fetchData(from: url, completion: { result in
             switch(result) {
@@ -32,8 +31,7 @@ class APIClient: NSObject {
             }
         })
     }
-    
-    
+        
     private func processData(_ data: Data, completion: @escaping(Result<CharacterListModel, Error>) -> Void) {
         do {
             let charactersList = try JSONDecoder().decode(CharacterListModel.self, from: data)
@@ -65,13 +63,11 @@ class APIClient: NSObject {
                 }
                 let cachedResponse = CachedURLResponse(response: response, data: data)
                 self.cache.storeCachedResponse(cachedResponse, for: request)
+                completion(.success(data))
                 
             } else {
                 completion(.failure(NSError(domain: "", code: -1)))
             }
-            
-            
-            
         }.resume()
         
     }
