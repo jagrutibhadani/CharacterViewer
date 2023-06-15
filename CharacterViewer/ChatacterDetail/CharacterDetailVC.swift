@@ -110,6 +110,7 @@ class CharacterDetailVC: UIViewController {
 }
 extension CharacterDetailVC: CharacterSelectionDelegate {
     func selectedCharacter(index: Int) {
+        viewModel?.characterImageData = nil
         self.clearStackView()
         viewModel?.selectedIndex = index
         loadingIndicatorView.showSpinner(self.view)
