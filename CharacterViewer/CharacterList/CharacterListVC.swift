@@ -19,12 +19,6 @@ class CharacterListVC: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     weak var delegate: CharacterSelectionDelegate?
     
-    lazy var loadingIndicator: UIActivityIndicatorView = {
-        var activityVC = UIActivityIndicatorView(style: .large)
-        activityVC.startAnimating()
-        return activityVC
-    }()
-    
     lazy var loadingIndicatorView: LoadingIndicatorView = {
         let loadingView = LoadingIndicatorView(frame: self.tableView.frame)
         return loadingView
@@ -34,6 +28,7 @@ class CharacterListVC: UITableViewController {
         super.viewDidLoad()
         viewModel = CharacterListViewModel(apiClient: APIClient())
         loadCharacters()
+        viewModel?.getCharacters()
     }
     
     func loadCharacters() {

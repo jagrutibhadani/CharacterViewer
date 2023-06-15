@@ -9,39 +9,28 @@ import Foundation
 class APIClient: NSObject {
     let cache = URLCache.shared
     
-    func getCharacters(completion: @escaping(Result<CharacterListModel, Error>) -> Void) {
-        
-        
-        guard let dataApi = Bundle.main.infoDictionary?["DATA_API"] as? String,
-              let url = URL(string: dataApi) else {
-            return
-        }
-        let request = URLRequest(url: url)
-        
-        if let cachedResponse = cache.cachedResponse(for: request) {
-            self.processData(cachedResponse.data, completion: completion)
-        }
-        
-        let task =  URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            if let response = response as? HTTPURLResponse, (200...209).contains(response.statusCode) {
-                guard let data = data else {
-                    completion(.failure(NSError(domain: "", code: -1)))
-                    return
-                }
+    func fetchCharacters(from url: URL, completion: @escaping(Result<CharacterListModel, Error>) -> Void) {
+        self.fetchData(from: url, completion: { result in
+            switch(result) {
+            case .success(let data):
                 self.processData(data, completion: completion)
-                let cachedResponse = CachedURLResponse(response: response, data: data)
-                self.cache.storeCachedResponse(cachedResponse, for: request)
+            case .failure(let error):
+                completion(.failure(error))
                 
-            } else {
-                completion(.failure(NSError(domain: "", code: -1)))
             }
-        }
-        task.resume()
-        
+        })
+    }
+    
+    
+    func fetchCharacterImage(from url: URL, completion: @escaping (Data?) -> Void) {
+        self.fetchData(from: url, completion: { result in
+            switch(result) {
+            case .success(let data):
+                completion(data)
+            case .failure(_):
+                completion(nil)
+            }
+        })
     }
     
     
@@ -55,24 +44,38 @@ class APIClient: NSObject {
         }
     }
     
-    func fetchCharacterImage(from url: URL, completion: @escaping (Data?) -> Void) {
+    private func fetchData(from url: URL, completion: @escaping(Result<Data, Error>) -> Void) {
         let urlSession = URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: .main)
-        urlSession.dataTask(with: url) { data, response, error in
+        let request = URLRequest(url: url)
+        
+        if let cachedResponse = cache.cachedResponse(for: request) {
+            completion(.success(cachedResponse.data))
+            return
+        }
+        
+        urlSession.dataTask(with: request) { data, response, error in
             if let error = error {
-                print("Error fetching image: \(error.localizedDescription)")
-                completion(nil)
+                completion(.failure(error))
                 return
             }
-            guard let data = data else {
-                print("Invalid image data")
-                completion(nil)
-                return
+            if let response = response as? HTTPURLResponse, (200...209).contains(response.statusCode) {
+                guard let data = data else {
+                    completion(.failure(NSError(domain: "", code: -1)))
+                    return
+                }
+                let cachedResponse = CachedURLResponse(response: response, data: data)
+                self.cache.storeCachedResponse(cachedResponse, for: request)
+                
+            } else {
+                completion(.failure(NSError(domain: "", code: -1)))
             }
-            completion(data)
+            
+            
+            
         }.resume()
+        
     }
-    
-    func clearCache() {
+    private func clearCache() {
         self.cache.removeAllCachedResponses()
     }
     

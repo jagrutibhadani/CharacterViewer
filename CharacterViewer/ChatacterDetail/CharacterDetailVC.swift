@@ -11,7 +11,7 @@ import UIKit
 class CharacterDetailVC: UIViewController {
     private lazy var stackView: UIStackView = {
         let stackVew = UIStackView()
-        stackVew.spacing = 10
+        stackVew.spacing = VERTICAL_SPACE_STACKVIEW
         stackVew.axis = .vertical
         return stackVew        
     }()
@@ -32,7 +32,7 @@ class CharacterDetailVC: UIViewController {
         return viewModel
     }()
     
-    lazy var loadingIndicatorView: LoadingIndicatorView = {
+    private lazy var loadingIndicatorView: LoadingIndicatorView = {
         let loadingView = LoadingIndicatorView(frame: self.view.frame)
         return loadingView
     }()
@@ -41,7 +41,6 @@ class CharacterDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addStackView()
-        showDetails()
     }
     
     private func showDetails() {
@@ -65,11 +64,11 @@ class CharacterDetailVC: UIViewController {
         
         self.scrollView.addSubview(self.stackView)
         self.stackView.translatesAutoresizingMaskIntoConstraints = false
-        self.stackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: 10).isActive = true;
+        self.stackView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor, constant: SIDE_SPACE_STACKVIEW).isActive = true;
         self.stackView.topAnchor.constraint(equalTo: self.scrollView.topAnchor).isActive = true;
-        self.stackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor, constant: 10).isActive = true;
+        self.stackView.trailingAnchor.constraint(equalTo: self.scrollView.trailingAnchor, constant: SIDE_SPACE_STACKVIEW).isActive = true;
         self.stackView.bottomAnchor.constraint(equalTo: self.scrollView.bottomAnchor).isActive = true;
-        self.stackView.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -20).isActive = true
+        self.stackView.widthAnchor.constraint(equalTo: self.view.widthAnchor, constant: -SIDE_SPACE_STACKVIEW*2).isActive = true
     }
     
     private func addCharacterImage() {
@@ -86,7 +85,7 @@ class CharacterDetailVC: UIViewController {
     private func addTitle() {
         let titleLbl = UILabel()
         titleLbl.text = viewModel?.characterTitle
-        titleLbl.font = .boldSystemFont(ofSize: 24)
+        titleLbl.font = .boldSystemFont(ofSize: FONT_SIZE_TITLE)
         titleLbl.textAlignment = .center
         titleLbl.numberOfLines = 0
         stackView.addArrangedSubview(titleLbl)
@@ -95,7 +94,7 @@ class CharacterDetailVC: UIViewController {
     private func addDescription() {
         let descriptionLbl = UILabel()
         descriptionLbl.text = viewModel?.characterDescription
-        descriptionLbl.font = .systemFont(ofSize: 20)
+        descriptionLbl.font = .systemFont(ofSize: FONT_SIZE_DESCRIPTION)
         descriptionLbl.textAlignment = .center
         descriptionLbl.numberOfLines = 0
         stackView.addArrangedSubview(descriptionLbl)
@@ -110,12 +109,12 @@ class CharacterDetailVC: UIViewController {
 }
 extension CharacterDetailVC: CharacterSelectionDelegate {
     func selectedCharacter(index: Int) {
-        viewModel?.characterImageData = nil
         self.clearStackView()
         viewModel?.selectedIndex = index
+        showDetails()
         loadingIndicatorView.showSpinner(self.view)
         viewModel?.getCharacterImage()
-        showDetails()
+       
     }
 }
 

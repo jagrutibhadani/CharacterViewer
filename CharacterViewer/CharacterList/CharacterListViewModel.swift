@@ -22,11 +22,14 @@ class CharacterListViewModel {
     
     init(apiClient: APIClient) {
         self.apiClient = apiClient
-        getCharacters()
     }
     
     func getCharacters() {
-        apiClient.getCharacters(completion: { result in
+        guard let dataApi = Bundle.main.infoDictionary?["DATA_API"] as? String,
+              let url = URL(string: dataApi) else {
+            return
+        }
+        apiClient.fetchCharacters(from: url, completion: { result in
             DispatchQueue.main.async { [weak self] in
                 switch(result) {
                 case .success(let charactersList):

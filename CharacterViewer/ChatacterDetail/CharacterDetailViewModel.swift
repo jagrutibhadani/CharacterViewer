@@ -37,10 +37,11 @@ class CharacterDetailViewModel {
     
     init(apiClient: APIClient) {
         self.apiClient = apiClient
-        loadCharacters()
+        if characterListModel == nil {
+            loadCharacters()
+        }       
         getCharacterImage()
     }
-    
 
     func getCharacterImage() {
         if  let baseUrl = Bundle.main.infoDictionary?["BASE_URL"] as? String,
@@ -58,11 +59,17 @@ class CharacterDetailViewModel {
     }
     
     func loadCharacters() {
-        apiClient.getCharacters(completion: { result in
+        guard let dataApi = Bundle.main.infoDictionary?["DATA_API"] as? String,
+              let url = URL(string: dataApi) else {
+            return
+        }
+        
+        apiClient.fetchCharacters(from: url, completion: { result in
             DispatchQueue.main.async { [weak self] in
                 switch(result) {
                 case .success(let charactersList):
                     self?.characterListModel = charactersList
+                    self?.bindModelToDetailViewController()
                 case .failure(_):
                     self?.error = "Error getting characters"
                 }

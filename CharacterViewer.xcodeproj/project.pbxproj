@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC6ACD5E2A3B9F9400145A23 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6ACD5D2A3B9F9400145A23 /* Constants.swift */; };
+		FC6ACD5F2A3B9F9400145A23 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6ACD5D2A3B9F9400145A23 /* Constants.swift */; };
 		FCB531262A39674100ABB02A /* CharacterContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB531252A39674100ABB02A /* CharacterContainerVC.swift */; };
 		FCB531292A3A47C900ABB02A /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB531282A3A47C900ABB02A /* ApiClient.swift */; };
 		FCB5312E2A3A5E8F00ABB02A /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB5312D2A3A5E8F00ABB02A /* CharacterDetailViewModel.swift */; };
@@ -36,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC6ACD5D2A3B9F9400145A23 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FCB531252A39674100ABB02A /* CharacterContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterContainerVC.swift; sourceTree = "<group>"; };
 		FCB531282A3A47C900ABB02A /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		FCB5312D2A3A5E8F00ABB02A /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
@@ -52,7 +55,6 @@
 		FCD969132A38FC2700819488 /* CharacterListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListModel.swift; sourceTree = "<group>"; };
 		FCD969172A39557000819488 /* CharacterDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailVC.swift; sourceTree = "<group>"; };
 		FCF191AF2A3B82C0003409EB /* WireViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WireViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FCF191B02A3B82C0003409EB /* CharacterViewer copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CharacterViewer copy-Info.plist"; path = "/Users/ac31tzz/Library/CloudStorage/OneDrive-3M/Desktop/Character/Simpsonsviewer copy 3/CharacterViewer copy-Info.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +106,6 @@
 			children = (
 				FCDC8BB32A3B6AB9004D807B /* CharacterViewer */,
 				FCD968F92A38F11E00819488 /* Products */,
-				FCF191B02A3B82C0003409EB /* CharacterViewer copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +128,7 @@
 				FCB5312C2A3A5E5D00ABB02A /* ApiClient */,
 				FCD968FB2A38F11E00819488 /* AppDelegate.swift */,
 				FCD968FD2A38F11E00819488 /* SceneDelegate.swift */,
+				FC6ACD5D2A3B9F9400145A23 /* Constants.swift */,
 				FCD969012A38F11E00819488 /* CharacterContainer.storyboard */,
 				FCD969042A38F11F00819488 /* Assets.xcassets */,
 				FCD969062A38F11F00819488 /* LaunchScreen.storyboard */,
@@ -252,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCD969002A38F11E00819488 /* CharacterListVC.swift in Sources */,
+				FC6ACD5E2A3B9F9400145A23 /* Constants.swift in Sources */,
 				FCB531302A3B507C00ABB02A /* LoadingIndicatorView.swift in Sources */,
 				FCB531262A39674100ABB02A /* CharacterContainerVC.swift in Sources */,
 				FCD968FC2A38F11E00819488 /* AppDelegate.swift in Sources */,
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCF1919D2A3B82C0003409EB /* CharacterListVC.swift in Sources */,
+				FC6ACD5F2A3B9F9400145A23 /* Constants.swift in Sources */,
 				FCF1919E2A3B82C0003409EB /* LoadingIndicatorView.swift in Sources */,
 				FCF1919F2A3B82C0003409EB /* CharacterContainerVC.swift in Sources */,
 				FCF191A02A3B82C0003409EB /* AppDelegate.swift in Sources */,
