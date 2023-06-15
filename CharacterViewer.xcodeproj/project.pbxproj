@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		FC6ACD5E2A3B9F9400145A23 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6ACD5D2A3B9F9400145A23 /* Constants.swift */; };
 		FC6ACD5F2A3B9F9400145A23 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6ACD5D2A3B9F9400145A23 /* Constants.swift */; };
+		FC6ACD632A3BAD8200145A23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCD969042A38F11F00819488 /* Assets.xcassets */; };
+		FC6ACD652A3BAD9300145A23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCD969042A38F11F00819488 /* Assets.xcassets */; };
 		FCB531262A39674100ABB02A /* CharacterContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB531252A39674100ABB02A /* CharacterContainerVC.swift */; };
 		FCB531292A3A47C900ABB02A /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB531282A3A47C900ABB02A /* ApiClient.swift */; };
 		FCB5312E2A3A5E8F00ABB02A /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB5312D2A3A5E8F00ABB02A /* CharacterDetailViewModel.swift */; };
@@ -17,7 +19,6 @@
 		FCD968FE2A38F11E00819488 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD968FD2A38F11E00819488 /* SceneDelegate.swift */; };
 		FCD969002A38F11E00819488 /* CharacterListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD968FF2A38F11E00819488 /* CharacterListVC.swift */; };
 		FCD969032A38F11E00819488 /* CharacterContainer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCD969012A38F11E00819488 /* CharacterContainer.storyboard */; };
-		FCD969052A38F11F00819488 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCD969042A38F11F00819488 /* Assets.xcassets */; };
 		FCD969082A38F11F00819488 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCD969062A38F11F00819488 /* LaunchScreen.storyboard */; };
 		FCD969122A38FBF700819488 /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD969112A38FBF700819488 /* CharacterListViewModel.swift */; };
 		FCD969142A38FC2700819488 /* CharacterListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD969132A38FC2700819488 /* CharacterListModel.swift */; };
@@ -33,7 +34,6 @@
 		FCF191A52A3B82C0003409EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD968FD2A38F11E00819488 /* SceneDelegate.swift */; };
 		FCF191A62A3B82C0003409EB /* CharacterListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD969132A38FC2700819488 /* CharacterListModel.swift */; };
 		FCF191A92A3B82C0003409EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCD969062A38F11F00819488 /* LaunchScreen.storyboard */; };
-		FCF191AA2A3B82C0003409EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCD969042A38F11F00819488 /* Assets.xcassets */; };
 		FCF191AB2A3B82C0003409EB /* CharacterContainer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCD969012A38F11E00819488 /* CharacterContainer.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -231,7 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCD969082A38F11F00819488 /* LaunchScreen.storyboard in Resources */,
-				FCD969052A38F11F00819488 /* Assets.xcassets in Resources */,
+				FC6ACD632A3BAD8200145A23 /* Assets.xcassets in Resources */,
 				FCD969032A38F11E00819488 /* CharacterContainer.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,7 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCF191A92A3B82C0003409EB /* LaunchScreen.storyboard in Resources */,
-				FCF191AA2A3B82C0003409EB /* Assets.xcassets in Resources */,
+				FC6ACD652A3BAD9300145A23 /* Assets.xcassets in Resources */,
 				FCF191AB2A3B82C0003409EB /* CharacterContainer.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,8 +424,9 @@
 		FCD9690D2A38F11F00819488 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = SimpsonAppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -436,8 +437,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = CharacterContainer;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,8 +455,9 @@
 		FCD9690E2A38F11F00819488 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = SimpsonAppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -467,8 +468,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = CharacterContainer;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -486,8 +486,9 @@
 		FCF191AD2A3B82C0003409EB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = WireAppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -498,8 +499,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = CharacterContainer;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -517,8 +517,9 @@
 		FCF191AE2A3B82C0003409EB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = WireAppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
@@ -529,8 +530,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = CharacterContainer;
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
